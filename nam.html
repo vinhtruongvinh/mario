@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cây Nấm Cười</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #a0e1ff, #cce7ff);
+            overflow: hidden;
+        }
+
+        .mushroom {
+            position: relative;
+            width: 120px;
+            height: 140px;
+            animation: bounce 2s infinite ease-in-out;
+            transition: transform 0.3s;
+        }
+
+        /* Phần nắp nấm */
+        .cap {
+            width: 120px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 30%, #ff4d4d, #cc0000);
+            border-radius: 60px 60px 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cap::before, .cap::after {
+            content: "";
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cap::before {
+            width: 25px;
+            height: 25px;
+            top: 15px;
+            left: 20px;
+        }
+
+        .cap::after {
+            width: 18px;
+            height: 18px;
+            top: 10px;
+            right: 25px;
+        }
+
+        /* Phần thân nấm */
+        .stem {
+            width: 55px;
+            height: 70px;
+            background: linear-gradient(to bottom, #f7d9b0, #e0ac69);
+            border-radius: 30px;
+            position: absolute;
+            bottom: 0;
+            left: 32.5px;
+            box-shadow: inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Khuôn mặt trên thân nấm */
+        .face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .eyes {
+            display: flex;
+            gap: 12px;
+        }
+
+        .eye {
+            width: 14px;
+            height: 18px;
+            background: black;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .eye::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 4px;
+        }
+
+        .cheeks {
+            display: flex;
+            gap: 20px;
+            margin-top: -5px;
+        }
+
+        .cheek {
+            width: 12px;
+            height: 7px;
+            background: pink;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .mouth {
+            width: 25px;
+            height: 12px;
+            background: black;
+            border-radius: 0 0 12px 12px;
+            margin-top: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Khi di chuột vào, miệng sẽ cong lên thành nụ cười */
+        .mushroom:hover .mouth {
+            height: 8px;
+            width: 30px;
+            border-radius: 12px;
+            transform: rotate(180deg);
+            background: #ff6600;
+        }
+
+        /* Hiệu ứng nhún nhảy */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .mushroom:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mushroom">
+        <div class="cap"></div>
+        <div class="stem"></div>
+        <div class="face">
+            <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+            <div class="cheeks">
+                <div class="cheek"></div>
+                <div class="cheek"></div>
+            </div>
+            <div class="mouth"></div>
+        </div>
+    </div>
+</body>
+</html>
